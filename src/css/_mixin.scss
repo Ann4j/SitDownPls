@@ -1,0 +1,121 @@
+@import '_varialables.scss';
+
+@mixin styleTitle {
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 1;
+  margin-bottom: 26px;
+  color: $main-text-color;
+
+  @media (max-width:760px) {
+    font-size: clamp(24px,4vw,32px);
+  }
+}
+
+@mixin navItemStyle {
+  font-weight: 400;
+  font-size: 16px;
+}
+
+@mixin navItemGrayStyle {
+  font-weight: 400;
+  font-size: 14px;
+  color: $second-text-color;
+}
+
+@mixin textStyle {
+  font-weight: 400;
+  font-size: 24px;
+  color: $main-text-color;
+}
+
+@mixin btnShaded {
+  border-radius: 10px;
+  padding: 22px 50px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+  text-align: center;
+  color: $white-color-text;
+  background: $main-violet-color;
+}
+
+@mixin btnUnpainted {
+  border: 2px solid $main-violet-color;
+  border-radius: 10px;
+  padding: 18px 33px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1;
+  text-align: center;
+  color: $main-violet-color;
+}
+
+
+
+@mixin container {
+  max-width: 1360px;
+ padding-left: 36px;
+ padding-right: 36px;
+  margin: 0 auto;
+
+  @media (max-width:1000px) {
+    padding-left: 68px;
+    padding-right: 68px;
+  }
+
+  @media (max-width:760px) {
+    padding-left: clamp(12px,4vw,68px);
+    padding-right: clamp(12px,4vw,68px);
+  }
+
+}
+
+@mixin article {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 420px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @media (max-width:1360px) {
+    height: 202px;
+  }
+}
+
+@mixin hoverBtn {
+  background-color: $second-violet-color;
+}
+
+@mixin focusBtn {
+  background-color: $second-violet-color;
+  border-color: $active-violet-color;
+}
+
+@mixin activBtn {
+  background-color: $active-violet-color;
+  border-color: $active-violet-color;
+}
+
+@mixin hoverBtnUnpainted {
+  background-color: $main-violet-color;
+}
+
+@mixin hoverText {
+  color: $main-violet-color;
+}
+
+@mixin focusText {
+  color: $active-violet-color;
+  background-color:#EBD1FF ;
+}
+
+@mixin focusText {
+  color: $active-violet-color;
+}
+
+
+
+

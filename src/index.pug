@@ -1,0 +1,270 @@
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title SitDownPls
+    link(rel="icon" href=require("./img/favicon.svg") type="image/svg+xml")
+    link(rel="stylesheet" type="text/css" href=require("./css/normalize.css"))
+    link(rel="stylesheet" type="text/css" href=require("./css/style.scss"))
+    link(rel="stylesheet" type="text/css" href=require("./css/media.scss"))
+  body
+  -
+    var navAbout = [{name:"О компании"},{name:"Блог"}]
+  -
+    var navServices = [{name:"Доставка"},{name:"Рассрочка и кредит"},{name:"Сборка и установка"}]
+  -
+    var navContacts = [{name:"Обратная связь"},{name:"Контакты"}]
+  -
+    var navCooperation = [{name:"Поставщикам"},{name:"Оптовикам"},{name:"Карьера"}];
+  -
+    var navHeader = [
+      {item:"Каталог"},
+      {item:"Магазины"},
+      {item:"Шоу-рум"},
+      {item:"Доставка и оплата"},
+      {item:"Дисконт"},
+      {item:"Контакты"}
+    ]
+  -
+    var special = [
+      {discount:"- 9 000",img:"chair", title:`Кресло велюровое<br />“X-24”`,price1:"15 990 руб",price2:"24 990 руб"},
+      {discount:"- 10 000",img:"sofa", title:`Диван тканевый<br />“Z-44”`,price1:"22 990 руб",price2:"32 990 руб"},
+      {discount:"- 600",img:"watch", title:`Будильник<br />“Quartz-23”`,price1:"1 290 руб",price2:"1 890 руб"},
+      {discount:"- 300",img:"deer", title:"Мини-скульптура<br />“Oh my deer“",price1:"690 руб",price2:"990 руб"},
+      {discount:"- 10 000",img:"sofa2", title:"Диван вел-флок<br />“Z-85”",price1:"22 990 руб",price2:"32 990 руб"},
+      {discount:"- 700",img:"pockerWatch", title:"Термометр +<br />гидрометр <br />“H-18”",price1:"1 390 руб",price2:"2 090 руб"}
+    ]
+  -
+    var rating = [
+      {star:"5,0",title:`Диван кожаный<br />“R-94”`,price:"94 990 руб",img:"1"},
+      {star:"4,9",title:"Диван апартековый<br />“T-75”",price:"69 990 руб",img:"2"},
+      {star:"4,8",title:"Диван тканевый<br />“D-31”",price:"28 490 руб",img:"3"},
+      {star:"4,8",title:"Диван велюровый<br />“Y-68”",price:"22 990 руб",img:"4"},
+      {star:"4,8",title:"Диван из шинила<br />“W-95”",price:"22 990 руб",img:"5"},
+      {star:"4,8",title:"Диван флоковый<br />“G-41”",price:"17 990 руб",img:"6"},
+      {star:"4,8",title:"Диван шиниловый<br />“V-43”",price:"19 990 руб",img:"7"},
+      {star:"4,7",title:"Диван велюровый<br />“S-99”",price:"19 990 руб",img:"8"}
+    ]
+  -
+    var top = [
+      {descr1:"Прямые",descr2:"Угловые",descr3:"Модульные",title:"Диваны",img:"sofa"},
+      {descr1:"Мягкие",descr2:"Кресла-кровати",descr3:"",title:"Кресла",img:"armchair"},
+      {descr1:"Односпальные",descr2:"Двуспальные",descr3:"",title:"Кровати",img:"bed"},
+      {descr1:"Тумбы",descr2:"Комоды",descr3:"",title:"Тумбы и комоды",img:"dresser"},
+      {descr1:"Деревянные",descr2:"Металлокаркас",descr3:"",title:"Стулья",img:"chair"}
+    ]
+  -
+    var useful = [
+      {img:"1",descr:"И нет сомнений, что сделанные на базе интернет-аналитики выводы представляют собой не что иное?"},
+      {img:"2",descr:"Как принято считать, некоторые особенности приносят несомненную пользу обществу?"},
+      {img:"3",descr:"Ясность нашей позиции очевидна: укрепление и развитие внутренней структуры?"},
+      {img:"4",descr:"Прежде всего, консультация с широким активом однозначно фиксирует необходимость распределения?"},
+      {img:"5",descr:"Как принято считать, некоторые особенности приносят несомненную пользу обществу?"}
+    ]
+  header.header
+      .header__content.contacts
+        .contacts__wrap
+          .contacts__left
+            a(href="tel:+74958854547").contacts__tel
+              include img/phone.svg
+              | +7(495)885-45-47
+            include img/logo.svg
+          nav.contacts__nav
+            ul.contacts__list
+              li.contacts__item
+                a(href="#").contacts__link О компании
+              li.contacts__item
+                a(href="#").contacts__link Гарантия и возврат
+              li.contacts__item
+                a(href="#").contacts__link Корпоративным клиентам
+              li.contacts__item
+                a(href="#").contacts__link Дизайн-решение
+            .contacts__user
+              include img/header-user.svg
+              include img/header-basket.svg
+      .header__main
+        .container
+          .header__case
+            a(href="tel:+74958854547").header__tel
+              include img/phone.svg
+              | +7(495)885-45-47
+            include img/logo.svg
+            nav.header__nav
+              ul.header__list
+                each nav in navHeader
+                  li.header__item
+                    a(href="#").header__link=nav.item
+            .header__user.header__user-mobile
+              include img/header-user.svg
+              include img/header-basket.svg
+          .header__search
+            .header__wrap.header__wrap-input
+              include img/header-search.svg
+              input.header__input(placeholder="Я хочу купить...")
+              button.header__btn
+                include img/arrow.svg
+            .header__user
+              include img/header-user.svg
+              include img/header-basket.svg
+  main.main
+    section.hero
+      .container
+        .hero__content
+          h2.hero__title Cкидка 15% на первую покупку
+          button.hero__btn Получить!
+    section.button
+      .container
+        .button__content
+          button.btn Получить!
+    section.special
+      .container
+        .special__content
+          h3.special__title Специальные предложения
+          .special__wrap
+            each card in special
+              article.special__offer.offer
+                .offer__card
+                  .offer__discount
+                    p=card.discount
+                  picture
+                    source(srcset=require(`./img/special-${card.img}-1350.png`), media="(max-width: 1360px)")
+                    img(src=require(`./img/special-${card.img}.png`), alt=`${card.title}`)
+                  .offer__wrap
+                    h4.offer__title !{card.title}
+                    .offer__price.price
+                      span.price__now=card.price1
+                      span.price__initial=card.price2
+                    button.offer__btn Купить
+    section.rating
+      .container
+        .rating__content
+          h3.rating__title Высокий рейтинг
+          .rating__products
+            each card in rating
+              article.rating__product.product
+                .product__card
+                  span.product__star=card.star
+                  img(src=require(`./img/rating-sofa-${card.img}.png`), alt=`${card.title}`)
+                  .product__wrap
+                    h4.product__title !{card.title}
+                    p.product__price=card.price
+                    button.product__btn Купить
+    section.oxford
+      .container
+        .oxford__content
+          h2.oxford__title
+            span Оксфорд 1950
+            | Новая коллекция изысканных кресел
+          button.oxford__btn Ознакомиться
+    section.button
+      .container
+        .button__content
+          button.btn Ознакомиться
+    section.top
+      .container
+        .top__content
+          h3.top__title Топ категории
+          .top__categories.categories
+            each card in top
+              atricle.categories__card
+                button.categories__btn.categories__btn-mobile
+                  include img/arrow.svg
+                .categories__wrap
+                  ul.categories__list
+                    li.categories__item
+                      p.categories__name=card.descr1
+                    li.categories__item
+                      p.categories__name=card.descr2
+                    li.categories__item
+                      p.categories__name=card.descr3
+                  h4.categories__title=card.title
+                  picture
+                    source(srcset=require(`./img/categories-${card.img}-540.png`), media="(max-width: 570px)")
+                    source(srcset=require(`./img/categories-${card.img}-760.png`), media="(max-width: 760px)")
+                    source(srcset=require(`./img/categories-${card.img}-1350.png`), media="(max-width: 1360px)")
+                    img(src=require(`./img/categories-${card.img}.png`), alt=`${card.title}`)
+                  button.categories__btn В каталог
+                    include img/arrow.svg
+    section.useful
+      .container
+        .useful__content
+        h3.useful__title Полезное
+        .useful__articles.articles
+          each card in useful
+            article.articles__card
+              .articles__wrap
+                p.articles__descr=card.descr
+                button.articles__btn Читать
+    section.feedback
+      .container
+        .feedback__content
+          .feedback__wrap
+            h3.feedback__title Мы всегда вам рады!
+            p.feedback__descr Безусловно, новая модель организационной деятельности в значительной степени обусловливает важность распределения внутренних резервов и ресурсов.
+            form.feedback__form.form
+              input.form__input(placeholder="Как вас зовут?")
+              input.form__input(placeholder="Ваш телефон")
+              input.form__input(placeholder="Ваш e-mail")
+              button.form__btn Отправить
+              .form__wrap
+                input.form__chekbox(id="form__chekbox" type="checkbox")
+                label.form__label(for="form__chekbox") Принимаю&nbsp;
+                  a пользовательское соглашение
+  footer.footer
+    .footer__content
+      .footer__wrap
+        .footer__icon.icon
+          include img/logo.svg
+          .icon__wrap
+            include img/classmates.svg
+            include img/vk.svg
+        nav.footer__nav.nav
+          .nav__section
+            b.nav__title О нас
+            ul.nav__list
+              each item in navAbout
+                li.nav__item
+                  a.nav__link=item.name
+          .nav__section
+            b.nav__title Услуги
+            ul.nav__list
+              each item in navServices
+                li.nav__item
+                  a.nav__link=item.name
+          .nav__section
+            b.nav__title Связь с нами
+            ul.nav__list
+              each item in navContacts
+                li.nav__item
+                  a.nav__link=item.name
+          .nav__section
+            b.nav__title Сотрудничество
+            ul.nav__list
+              each item in navCooperation
+                li.nav__item
+                  a.nav__link=item.name
+    .footer__sdp
+      p.footer__descr SDP®  2011-2021
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,77 @@
+extends _layout.pug
+block link
+  link(rel="stylesheet" type="text/css" href=require("./css/goods.scss"))
+  link(rel="stylesheet" type="text/css" href=require("./css/catalog.scss"))
+block varialables
+  include _mixins.pug
+  -
+    var goods = [
+      {star:"5,0",title:`Диван кожаный<br />“R-94”`,price:"94 990 руб",img:"1"},
+      {star:"4,9",title:"Диван апартековый<br />“T-75”",price:"69 990 руб",img:"2"},
+      {star:"4,8",title:"Диван тканевый<br />“D-31”",price:"28 490 руб",img:"3"},
+      {star:"4,8",title:"Диван велюровый<br />“Y-68”",price:"22 990 руб",img:"4"},
+      {star:"4,8",title:"Диван из шинила<br />“W-95”",price:"22 990 руб",img:"5"},
+      {star:"4,8",title:"Диван флоковый<br />“G-41”",price:"17 990 руб",img:"6"},
+      {star:"4,8",title:"Диван шиниловый<br />“V-43”",price:"19 990 руб",img:"7"},
+      {star:"4,7",title:"Диван велюровый<br />“S-99”",price:"19 990 руб",img:"8"},
+      {star:"4,7",title:"Диван из кожзама<br />“F-85”",price:"26 990 руб",img:"9"},
+    ]
+  -
+    var filter = [
+      {title:"Цвет",  items:[{name:"Коричневый",id:"1"},{name:"Черный",id:"2"},{name:"Синий",id:'3'},{name:"Белый",id:"4"}]},
+      {title:"Категория",items:[{name:"Диваны",id:"5"},{name:"Кресла",id:'6'}]}
+    ]
+block content
+  section.navigation
+    .container
+      nav.navigation__wrap
+        .navigation__item
+          a.navigation__link Главная
+        .navigation__item
+          a.navigation__link Каталог
+        .navigation__item
+          a.navigation__link Диваны
+        .navigation__item
+          a.navigation__link Прямые диваны
+  section.catalog
+    .container
+      .catalog__content
+        h2.catalog__title.catalog__title-adapt Каталог
+        .catalog__filter.filter
+          .filter__top
+            h3.filter__title Фильтровать по:
+            each chapter in filter
+              div.filter__wrap
+                p.filter__subtitle=chapter.title
+                ul.filter__list
+                  each item in chapter.items
+                    li.filter__item
+                      input.filter__chekbox(id=item.id type="checkbox")
+                      label.filter__label(for=item.id)=item.name
+            .filter__price.price
+              p.filter__subtitle Цена
+              .price__wrap
+                label.price__label от
+                input.price__input(type="text" placeholder="2000")
+                label.price__label до
+                input.price__input(type="text" placeholder="150 000")
+          .filter__oxford.oxford
+            .oxford__wrap
+              h3.oxford__title
+                span Оксфорд 1950
+                | Новая коллекция изысканных кресел
+              button.oxford__btn В каталог
+                include img/arrow.svg
+        .catalog__goods.goods
+          h2.goods__title Каталог
+          +card(goods)
+          .goods__links
+            a(href="")
+              include img/pagination1.svg
+            a(href="")
+              include img/pagination2.svg
+            a(href="")
+              include img/pagination3.svg
+
+
+

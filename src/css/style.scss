@@ -14,6 +14,7 @@ body {
 }
 
 a {
+  cursor: pointer;
   text-decoration: none;
   color: inherit;
   margin: 0;
@@ -130,6 +131,31 @@ input {
     color: $main-orange-color;
     font-weight: 400;
     font-size: 14px;
+
+    &:hover {
+      color: #FFBD59;
+
+      & svg path {
+        fill: #FFBD59;
+      }
+    }
+
+    &:focus-visible {
+      color: #FF862F;
+      background-color: #FFF5D1;
+
+      & svg path {
+        fill: #FF862F;
+      }
+    }
+
+    &:active {
+      color: #BB370E;
+
+      & svg path {
+        fill: #BB370E;
+      }
+    }
   }
 
   &__list {
@@ -144,6 +170,8 @@ input {
 
   &__user {
     display: none;
+    @include stateSvg;
+
   }
 
 }
@@ -191,6 +219,8 @@ input {
     padding-bottom: 20px;
     width: 100%;
     position: relative;
+
+    @include stateInput;
   }
 
   &__wrap-input svg {
@@ -205,6 +235,8 @@ input {
     position: absolute;
     right: 32px;
     top: 14px;
+
+    @include stateBtnSvg;
   }
 
   &__btn svg {
@@ -216,10 +248,12 @@ input {
   &__user {
     display: flex;
     gap: 32px;
+    @include stateSvg;
   }
 
   &__user-mobile {
     display: none;
+    @include stateSvg;
   }
 
   &__tel {
@@ -227,567 +261,11 @@ input {
   }
 
   &__link {
+    @include navItemStyle;
     white-space: nowrap;
   }
 }
 
-// hero
-
-.hero {
-  background-image: url(../img/hero.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-
-  &__content {
-    padding: 80px 0;
-    max-width: 40%;
-  }
-
-  &__title {
-    margin-bottom: 45px;
-    font-weight: 700;
-    font-size: 48px;
-    color: $second-text-color;
-    line-height: 1.4;
-  }
-
-  &__btn {
-    @include btnShaded;
-
-  }
-
-}
-
-// button
-
-.button {
-
-  &__content {
-    display: flex;
-    justify-content: center;
-  }
-}
-
-.btn {
-  @include btnShaded;
-  display: none;
-  flex: 1;
-  justify-content: center;
-}
-
-// special
-
-.special {
-  padding-top: 70px;
-  margin-bottom: $margin-bottom-section;
-
-  &__title {
-    @include styleTitle
-  }
-
-  &__wrap {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    gap: 32px;
-  }
-
-  &__offer {
-    background-color: $back-color;
-    position: relative;
-    height: 511px;
-    display: flex;
-    align-items: end;
-    border-radius: 10px;
-  }
-
-  &__offer:nth-of-type(n+4) {
-    display: none;
-  }
-}
-
-.offer {
-  &__card {
-    padding: 30px;
-    width: 100%;
-  }
-
-  &__card img {
-    display: block;
-    margin: 0 auto 16px;
-  }
-
-  &__discount {
-    position: absolute;
-    display: inline-block;
-    background-color: $main-orange-color;
-    left: 0;
-    top: 30px;
-  }
-
-  & p::after {
-    content: '';
-    border: 16px solid transparent;
-    border-left: 10px solid $main-orange-color;
-    position: absolute;
-    top: 0;
-    right: -26px;
-  }
-
-  & p {
-    padding: 7px 20px 7px 19px;
-    position: relative;
-    color: $white-color-text;
-    font-weight: 700;
-    font-size: 14px;
-  }
-
-  &__wrap {
-    position: relative;
-  }
-
-  &__title {
-    @include textStyle;
-    margin-bottom: 23px;
-    white-space: nowrap;
-  }
-
-  &__btn {
-    @include btnUnpainted
-  }
-}
-
-.offer:nth-child(2)::after {
-  content: "";
-  display: block;
-  width: 230px;
-  height: 107px;
-  background-image: url(../img/sofa-sketch.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  position: absolute;
-  right: 30px;
-  bottom: 30px;
-
-}
-
-
-.price {
-
-  display: flex;
-  gap: 30px;
-  margin-bottom: 23px;
-  align-items: center;
-
-  &__now {
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 1.3;
-    color: $main-orange-color;
-  }
-
-  &__initial {
-    @include navItemStyle;
-    line-height: 1.3;
-    text-decoration: line-through;
-    color: $second-text-color;
-  }
-}
-
-
-// rating
-
-.rating {
-  margin-bottom: $margin-bottom-section;
-
-  &__title {
-    @include styleTitle
-  }
-
-  &__products {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: space-between;
-  }
-
-}
-
-.product {
-  flex-basis: 294px;
-  background-color: $back-color;
-  position: relative;
-  height: 420px;
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-  border-radius: 10px;
-
-  &__card {
-    padding: 30px 15px;
-    border: 10px;
-  }
-
-  &__card img {
-    display: block;
-    margin: 0 auto;
-  }
-
-  &__star {
-    position: absolute;
-    left: 30px;
-    top: 30px;
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    color: $main-orange-color;
-  }
-
-  &__star::before {
-    content: "";
-    display: inline-flex;
-    width: 15px;
-    height: 15px;
-    background-image: url("../img/star.png");
-  }
-
-  &__wrap {
-    padding: 16px 15px 0 15px;
-  }
-
-  &__title {
-    @include textStyle;
-    line-height: 1.3;
-    margin-bottom: 24px;
-  }
-
-  &__price {
-    @include navItemStyle;
-    color: $gray-text-color;
-    margin-bottom: 24px;
-    white-space: nowrap
-  }
-
-  &__btn {
-    @include btnUnpainted;
-  }
-}
-
-// oxford
-
-.oxford {
-  background-image: url(../img/oxford.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-
-  &__content {
-    max-width: 40%;
-    padding: 150px 0;
-  }
-
-  &__title span {
-    display: block;
-    font-family: "Playfair-Display", sans-serif;
-    font-weight: 900;
-    font-size: 60px;
-    color: #d5b986;
-    line-height: 1.2;
-  }
-
-  &__title {
-    font-weight: 400;
-    font-size: 48px;
-    color: $white-color-text;
-    margin-bottom: 44px;
-    line-height: 1.3
-  }
-
-  &__btn {
-    @include btnShaded;
-    padding: 22px 31px;
-  }
-}
-
-// top
-
-.top {
-  padding-top: 70px;
-  margin-bottom: $margin-bottom-section;
-
-  &__title {
-    @include styleTitle
-  }
-
-  &__categories {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 32px;
-  }
-}
-
-.categories {
-
-  & img {
-    margin-bottom: 30px;
-  }
-
-  &__card {
-    background-color: $back-color;
-    border-radius: 10px;
-  }
-
-  &__card:nth-child(1) {
-    grid-column: 1/span 3;
-  }
-
-  &__card:nth-child(2) {
-    grid-column: 4/span 3;
-  }
-
-  &__card:nth-of-type(3) {
-    grid-column: 1/span 2;
-  }
-
-  &__card:nth-of-type(4) {
-    grid-column: 3/span 2;
-  }
-
-  &__card:nth-of-type(5) {
-    grid-column: 5/span 2;
-  }
-
-  &__wrap {
-    padding: 30px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-  }
-
-  &__list {
-    padding-left: 30px;
-    display: flex;
-    gap: 30px;
-    margin-bottom: 14px;
-  }
-
-  &__title {
-    padding-left: 30px;
-    margin-bottom: 30px;
-    @include textStyle
-  }
-
-  &__btn {
-    padding-left: 30px;
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    color: $main-violet-color;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 1.2;
-  }
-
-  &__btn-mobile {
-    display: none;
-  }
-
-  &__btn svg {
-    height: 23px;
-    width: 23px;
-  }
-
-  &__name {
-    @include navItemGrayStyle
-  }
-
-}
-
-// useful
-
-.useful {
-
-  margin-bottom: $margin-bottom-section;
-
-  &__title {
-    @include styleTitle
-  }
-
-  &__articles {
-    display: flex;
-    gap: 32px;
-  }
-}
-
-.articles {
-
-  &__wrap {
-    padding-bottom: 30px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-  }
-
-  &__card {
-    flex-grow: 1;
-    flex-basis: 0;
-    background-color: $back-color;
-    border-radius: 0 0 10px 10px;
-  }
-
-  &__card:nth-of-type(n+3) {
-    display: none;
-  }
-
-  &__card:nth-child(1) .articles__wrap::before {
-    @include article;
-    background-image: url(../img/article-1.jpg);
-  }
-
-  &__card:nth-child(2) .articles__wrap::before {
-    @include article;
-    background-image: url(../img/article-2.jpg);
-  }
-
-  &__card:nth-child(3) .articles__wrap::before {
-    @include article;
-    background-image: url(../img/article-3.png);
-  }
-
-  &__card:nth-child(4) .articles__wrap::before {
-    @include article;
-    background-image: url(../img/article-4.png);
-  }
-
-  &__card:nth-child(5) .articles__wrap::before {
-    @include article;
-    background-image: url(../img/article-5.png);
-  }
-
-
-
-  &__descr {
-    padding: 0 30px;
-    @include textStyle;
-    line-height: 1.5;
-  }
-
-  &__btn {
-    align-self: start;
-    display: inline-block;
-    margin-top: auto;
-    margin-left: 30px;
-    @include btnUnpainted;
-  }
-
-}
-
-// feedback
-
-.feedback {
-  margin-bottom: $margin-bottom-section;
-
-  &__content {
-    background-image: url(../img/form.png);
-    background-repeat: no-repeat;
-    background-position: right 0 center;
-  }
-
-  &__wrap {
-    max-width: 49%;
-  }
-
-  &__form {
-    display: flex;
-    flex-direction: column;
-
-  }
-
-  &__title {
-    @include styleTitle;
-    margin-bottom: 10px;
-  }
-
-  &__descr {
-    @include navItemGrayStyle;
-    line-height: 1.3;
-    margin-bottom: 16px;
-  }
-}
-
-.form {
-
-  &__input {
-    background-color: $back-color;
-    padding: 20px;
-    margin-bottom: 26px;
-    border-radius: 10px;
-
-    &:hover {
-      background-color: #EAEAEA;
-    }
-
-    &:focus-visible {
-      background-color: #F8EFFF;
-      outline: 2px solid $main-violet-color;
-    }
-
-    &:checked{
-      color: $main-text-color;
-      outline: 2px solid #B8EC64;
-    }
-  }
-
-  &__input::placeholder {
-    color: $second-text-color;
-  }
-
-  &__btn {
-    align-self: start;
-    @include btnShaded;
-    margin-bottom: 12px;
-    padding: 20px 35px;
-  }
-
-  &__chekbox {
-    appearance: none;
-    position: absolute;
-  }
-
-  &__label {
-    position: relative;
-    color: #cacaca;
-    user-select: none;
-    cursor: pointer;
-    font-weight: 400;
-    font-size: 14px;
-    color: #333;
-    display: flex;
-    align-items: center;
-  }
-
-  &__label a {
-    text-decoration: underline;
-    text-decoration-skip-ink: none;
-    color: $main-violet-color;
-
-  }
-
-  &__label::before {
-    content: '';
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    background-image: url(../img/checkbox.svg);
-    margin-right: 4px;
-  }
-
-}
-
-.form__chekbox:checked+.form__label::before {
-  background-image: url(../img/chekbox-true.svg);
-}
 
 // footer
 

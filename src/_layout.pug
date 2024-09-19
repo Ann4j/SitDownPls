@@ -1,0 +1,136 @@
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title SitDownPls
+    link(rel="icon" href=require("./img/favicon.svg") type="image/svg+xml")
+    link(rel="stylesheet" type="text/css" href=require("./css/normalize.css"))
+    link(rel="stylesheet" type="text/css" href=require("./css/style.scss"))
+    block link
+    link(rel="stylesheet" type="text/css" href=require("./css/media.scss"))
+  body
+  -
+    var navAbout = [{name:"О компании"},{name:"Блог"}]
+  -
+    var navServices = [{name:"Доставка"},{name:"Рассрочка и кредит"},{name:"Сборка и установка"}]
+  -
+    var navContacts = [{name:"Обратная связь"},{name:"Контакты"}]
+  -
+    var navCooperation = [{name:"Поставщикам"},{name:"Оптовикам"},{name:"Карьера"}];
+
+  - var navHeader = ["Каталог","Магазины","Шоу-рум","Доставка и оплата","Дисконт","Контакты"]
+  block varialables
+
+  header.header
+    .header__content.contacts
+      .contacts__wrap
+        .contacts__left
+          a(href="tel:+74958854547").contacts__tel
+            include img/phone.svg
+            | +7(495)885-45-47
+          include img/logo.svg
+        nav.contacts__nav
+          ul.contacts__list
+            li.contacts__item
+              a(href="#").contacts__link О компании
+            li.contacts__item
+              a(href="#").contacts__link Гарантия и возврат
+            li.contacts__item
+              a(href="#").contacts__link Корпоративным клиентам
+            li.contacts__item
+              a(href="#").contacts__link Дизайн-решение
+          .contacts__user
+            a(href="#")
+              include img/header-user.svg
+            a(href="#")
+              include img/header-basket.svg
+    .header__main
+      .container
+        .header__case
+          a(href="tel:+74958854547").header__tel
+            include img/phone.svg
+            | +7(495)885-45-47
+          include img/logo.svg
+          nav.header__nav
+            ul.header__list
+              each item in navHeader
+                li.header__item
+                  a(href="#").header__link=item
+          .header__user.header__user-mobile
+            a(href="")
+              include img/header-user.svg
+            a(href="")
+              include img/header-basket.svg
+        .header__search
+          .header__wrap.header__wrap-input
+            include img/header-search.svg
+            input.header__input(placeholder="Я хочу купить...")
+            button.header__btn
+              include img/arrow.svg
+          .header__user
+            a(href="#")
+              include img/header-user.svg
+            a(href="#")
+              include img/header-basket.svg
+  main.main
+    block content
+  footer.footer
+    .footer__content
+      .footer__wrap
+        .footer__icon.icon
+          include img/logo.svg
+          .icon__wrap
+            a(href="#")
+              include img/classmates.svg
+            a(href="#")
+              include img/vk.svg
+        nav.footer__nav.nav
+          .nav__section
+            b.nav__title О нас
+            ul.nav__list
+              each item in navAbout
+                li.nav__item
+                  a.nav__link=item.name
+          .nav__section
+            b.nav__title Услуги
+            ul.nav__list
+              each item in navServices
+                li.nav__item
+                  a.nav__link=item.name
+          .nav__section
+            b.nav__title Связь с нами
+            ul.nav__list
+              each item in navContacts
+                li.nav__item
+                  a.nav__link=item.name
+          .nav__section
+            b.nav__title Сотрудничество
+            ul.nav__list
+              each item in navCooperation
+                li.nav__item
+                  a.nav__link=item.name
+    .footer__sdp
+      p.footer__descr SDP®  2011-2021
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

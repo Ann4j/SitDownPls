@@ -1,131 +1,10 @@
 @import '_varialables.scss';
 @import '_mixin.scss';
 
-// 1350px
-
-@media (max-width:1360px) {
-
-
-  // special
-
-  .special {
-
-    &__wrap {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  .offer:nth-child(2)::after {
-    display: none;
-  }
-
-  .offer:nth-child(2) img {
-    margin-bottom: 50px;
-  }
-
-  // rating
-
-  .rating {
-
-    &__products {
-      justify-content: center;
-    }
-  }
-
-  .product:nth-of-type(n+7) {
-    display: none;
-
-  }
-
-  // oxford
-
-  .oxford {
-
-    &__content {
-      max-width: 50%;
-    }
-  }
-
-  // top
-
-  .top {
-
-    &__categories {
-      grid-template-columns: 1fr 1fr 296px;
-      grid-template-rows: repeat(2, 1fr);
-      align-items: stretch;
-    }
-  }
-
-  .categories {
-
-    &__card:nth-child(1) {
-      grid-column: 1/span 2;
-    }
-
-    &__card:nth-child(2) {
-      grid-row: 2/span 1;
-      grid-column: 2/span 1;
-    }
-
-    &__card:nth-of-type(3) {
-      grid-column: 3/span 1;
-    }
-
-    &__card:nth-of-type(4) {
-      grid-row: 2/span 1;
-      grid-column: 1/span 1;
-    }
-
-    &__card:nth-of-type(5) {
-      grid-column: 3/span 1;
-    }
-
-    &__card:nth-of-type(n+2) .categories__title {
-      margin-bottom: 40px;
-    }
-
-  }
-
-  // useful
-
-
-  .articles {
-
-    &__card:nth-child(3) {
-      display: block;
-    }
-
-    &__descr {
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 1.4;
-    }
-  }
-
-
-  // feedback
-
-  .feedback {
-
-    &__wrap {
-      max-width: 42.5%;
-    }
-
-    &__content {
-      background-image: url(../img/form-1350px.png);
-    }
-  }
-
-
-}
-
-
 // media 1200px
 
 @media (max-width:1200px) {
-
-    .header {
+  .header {
 
     &__main {
       padding-top: 17px;
@@ -178,32 +57,12 @@
     }
   }
 
-
-  // hero
-
-  .hero {
-    background-image: url(../img/hero-1350.png);
-
-    &__content {
-      max-width: 55%;
-    }
-  }
-
-
-
-  // oxford
-
-  .oxford {
-
-    background-image: url(../img/oxford-1200.png);
-  }
 }
 
 
 // media 1000px
 
 @media (max-width:1000px) {
-
   .header {
 
     &__case {
@@ -257,101 +116,7 @@
     }
   }
 
-  // hero
-
-  .hero {
-    background-image: url(../img/hero-1000px.png);
-
-    &__content {
-      max-width: 80%;
-    }
-  }
-
-  //special
-
-  .special {
-
-    &__wrap {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-
-    &__offer:nth-of-type(n+3) {
-      display: none;
-    }
-  }
-
-  // rating
-
-  .rating {
-
-    &__product {
-      flex-basis: 47.5%;
-    }
-  }
-
-  // oxford
-
-  .oxford {
-    background-image: url(../img/oxford-1000px.png);
-
-    &__content {
-      max-width: 80%;
-    }
-  }
-
-  // top
-
-  .top {
-
-    &__categories {
-      grid-template-columns: 296px 1fr;
-      grid-template-rows: repeat(3, 1fr);
-    }
-  }
-
-  .categories {
-
-    &__card:nth-of-type(3) {
-      grid-column: 1 / span 1;
-      grid-row: 2/ span 1;
-    }
-
-    &__card:nth-of-type(4) {
-      grid-row: 3 / span 1;
-      grid-column: 1 / span 1;
-    }
-
-    &__card:nth-of-type(5) {
-      grid-row: 3 / span 1;
-      grid-column: 2 / span 1;
-    }
-  }
-
-  // useful
-
-
-  .articles__card:nth-child(3) {
-    display: none;
-  }
-
-  // feedback
-
-  .feedback {
-
-    &__content {
-      background-image: url(../img/form-1000px.png);
-    }
-
-    &__wrap {
-      max-width: 60%;
-    }
-
-
-  }
-
   // footer
-
   .footer {
 
     &__wrap {
@@ -372,13 +137,10 @@
 
 }
 
-
 // 760px
-
 @media (max-width:760px) {
 
   // header
-
   .header {
 
     &__case svg:nth-child(2) {
@@ -404,7 +166,6 @@
   }
 
   .contacts {
-
     background-color: #F6F6F6;
 
     &__wrap {
@@ -430,195 +191,7 @@
     }
   }
 
-  // hero
-
-  .hero {
-    margin-bottom: 32px;
-
-    &__title {
-      font-size: clamp(20px, 5vw, 48px);
-    }
-
-    &__btn {
-      display: none;
-    }
-
-  }
-
-  .btn {
-    display: flex;
-  }
-
-  // special
-
-  .special {
-
-    &__wrap {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      align-items: center;
-
-    }
-
-    &__offer:nth-of-type(n+3) {
-      display: flex;
-    }
-
-    &__offer {
-      width: 296px;
-    }
-  }
-
-  // rating
-
-  .rating {
-    &__products {
-      gap: 10px;
-    }
-  }
-
-
-  .product {
-
-    height: clamp(280px, 69vw, 420px);
-
-    &__card {
-      padding: 15px;
-    }
-
-    & img {
-      width: clamp(108px, 30vw, 262px);
-    }
-
-    &__title {
-      font-size: clamp(16px, 4vw, 24px);
-      margin-bottom: 20px;
-    }
-
-    &__btn {
-      padding: 10px 25px;
-    }
-
-    &__star {
-      top: 14px;
-      font-size: 12px;
-    }
-
-    &__price {
-      margin-bottom: 20px;
-    }
-
-    &__star::before {
-      background-image: url(../img/star-mobile.png);
-      width: 13px;
-      height: 12px;
-    }
-
-    &__wrap {
-      padding: 0;
-      padding-top: 16px;
-      max-width: 70%;
-    }
-  }
-
-  // oxford
-
-  .oxford {
-
-    margin-bottom: 32px;
-
-    &__content {
-      max-width: 70%;
-    }
-
-    &__title {
-      font-size: clamp(16px, 5vw, 48px);
-      margin-bottom: 0;
-    }
-
-    &__title span {
-      font-size: clamp(24px, 8vw, 60px);
-    }
-
-    &__btn {
-      display: none;
-    }
-  }
-
-  // top
-
-  .top {
-    &__categories {
-      grid-template-columns: 1fr 1fr;
-      gap: 32px 16px;
-    }
-  }
-
-  .categories {
-
-    &__title {
-      margin-bottom: 16px;
-    }
-
-    &__card:nth-of-type(n+2) .categories__title {
-      max-width: 58%;
-      margin-bottom: 16px;
-    }
-
-    &__card:nth-of-type(n+2) .categories__list {
-      padding-left: 16px;
-    }
-
-    &__card:nth-of-type(n+2) .categories__title {
-      padding-left: 16px;
-    }
-
-
-
-    &__card:nth-of-type(n+2) .categories__wrap {
-      padding: 16px 0;
-    }
-
-    &__card:nth-of-type(n+2) ul {
-      flex-direction: column;
-      gap: 5px;
-    }
-
-    &__wrap {
-      height: 100%;
-      align-items: stretch;
-    }
-
-    &__btn {
-      margin-top: auto;
-    }
-
-    &__list {
-      padding-left: 30px;
-    }
-  }
-
-  // useful
-
-  .useful {
-    &__articles {
-      flex-wrap: wrap;
-    }
-  }
-
-  .articles {
-    &__card {
-      flex-basis: 296px;
-    }
-
-    &__card:nth-of-type(n+3) {
-      display: block;
-    }
-  }
-
   // footer
-
   .footer {
 
     &__wrap {
@@ -638,7 +211,6 @@
 }
 
 // 570px
-
 @media (max-width:570px) {
 
   // header
@@ -647,85 +219,6 @@
       margin-bottom: 20px;
     }
   }
-
-  // hero
-
-  .hero {
-    &__content {
-      padding: 25px 0 80px;
-    }
-  }
-
-  // special
-
-  .special {
-    &__wrap {
-      gap: 25px;
-    }
-  }
-
-  // oxford
-
-  .oxford {
-    &__content {
-      padding: 30px 0 112px;
-    }
-  }
-
-  // top
-
-  .categories {
-    grid-template-rows: 1fr 0.5fr 0.5fr;
-
-    &__card {
-      position: relative;
-
-    }
-
-    &__btn {
-      display: none;
-    }
-
-    &__card:nth-of-type(n+2) .categories__title {
-      font-size: 16px;
-    }
-
-    &__btn-mobile {
-      display: block;
-      position: absolute;
-      padding: 0;
-      margin: 0;
-      left: 100px;
-      top: 70px;
-    }
-
-    & img {
-      margin-bottom: 0;
-    }
-
-    &__card:nth-of-type(n+2) img {
-      max-width: 80%;
-    }
-
-    &__name {
-      font-size: 10px;
-    }
-  }
-
-  // feedback
-
-  .feedback {
-
-    &__content {
-      background-image: none;
-    }
-
-    &__wrap {
-      max-width: 100%;
-    }
-  }
-
-  .form__label {
-    font-size: 12px;
-  }
 }
+
+

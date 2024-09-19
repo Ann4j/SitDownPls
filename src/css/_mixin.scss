@@ -8,19 +8,45 @@
   color: $main-text-color;
 
   @media (max-width:760px) {
-    font-size: clamp(24px,4vw,32px);
+    font-size: clamp(24px, 4vw, 32px);
   }
 }
 
 @mixin navItemStyle {
   font-weight: 400;
   font-size: 16px;
+
+  &:hover {
+    color: $main-violet-color;
+  }
+
+  &:focus-visible {
+    color: $active-violet-color;
+    background-color: #EBD1FF;
+  }
+
+  &:active {
+    color: $active-violet-color;
+  }
 }
 
 @mixin navItemGrayStyle {
   font-weight: 400;
   font-size: 14px;
   color: $second-text-color;
+
+  &:hover {
+    color: $main-violet-color;
+  }
+
+  &:focus-visible {
+    color: $active-violet-color;
+    background-color: #EBD1FF;
+  }
+
+  &:active {
+    color: $active-violet-color;
+  }
 }
 
 @mixin textStyle {
@@ -38,6 +64,21 @@
   text-align: center;
   color: $white-color-text;
   background: $main-violet-color;
+
+  &:hover {
+    background-color: $second-violet-color;
+  }
+
+  &:focus-visible {
+    outline: none;
+    background-color: $second-violet-color;
+    border-color: $active-violet-color;
+  }
+
+  &:active {
+    background-color: $active-violet-color;
+    border-color: $active-violet-color;
+  }
 }
 
 @mixin btnUnpainted {
@@ -49,14 +90,30 @@
   line-height: 1;
   text-align: center;
   color: $main-violet-color;
+
+  &:hover {
+    background-color: $main-violet-color;
+    color: $white-color-text;
+  }
+
+  &:focus-visible {
+    outline: none;
+    color: $white-color-text;
+    background-color: $second-violet-color;
+    border-color: $active-violet-color;
+  }
+
+  &:active {
+    color: $white-color-text;
+    background-color: $active-violet-color;
+    border-color: $active-violet-color;
+  }
 }
-
-
 
 @mixin container {
   max-width: 1360px;
- padding-left: 36px;
- padding-right: 36px;
+  padding-left: 36px;
+  padding-right: 36px;
   margin: 0 auto;
 
   @media (max-width:1000px) {
@@ -65,8 +122,8 @@
   }
 
   @media (max-width:760px) {
-    padding-left: clamp(12px,4vw,68px);
-    padding-right: clamp(12px,4vw,68px);
+    padding-left: clamp(12px, 4vw, 68px);
+    padding-right: clamp(12px, 4vw, 68px);
   }
 
 }
@@ -85,37 +142,141 @@
   }
 }
 
-@mixin hoverBtn {
-  background-color: $second-violet-color;
-}
-
-@mixin focusBtn {
-  background-color: $second-violet-color;
-  border-color: $active-violet-color;
-}
-
-@mixin activBtn {
-  background-color: $active-violet-color;
-  border-color: $active-violet-color;
-}
-
-@mixin hoverBtnUnpainted {
-  background-color: $main-violet-color;
-}
-
-@mixin hoverText {
+@mixin btnCatalog {
+  padding-left: 30px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   color: $main-violet-color;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.2;
+
+  & span:hover {
+    border-bottom: 2px solid $main-violet-color;
+  }
+
+  & span:focus-visible {
+    border-bottom: 2px solid $main-violet-color;
+  }
+
+  & span:active {
+    border-bottom: $active-violet-color;
+    color: $active-violet-color;
+  }
+
+  @include stateBtnSvg
 }
 
-@mixin focusText {
-  color: $active-violet-color;
-  background-color:#EBD1FF ;
+@mixin groupCatalogNav {
+  margin-bottom: 32px;
+
+  &__wrap {
+    display: flex;
+    gap: 6px;
+  }
+
+  &__link {
+    @include navItemGrayStyle;
+    display: flex;
+    gap: 6px;
+  }
+
+  &__item:not(:last-child) a::after {
+    content: "/";
+    display: block;
+    color: $second-text-color;
+  }
+
+  &__item:last-child a {
+    color: $active-violet-color;
+  }
 }
 
-@mixin focusText {
-  color: $active-violet-color;
+@mixin star {
+  &__star {
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: $main-orange-color;
+  }
+
+  &__star::before {
+    content: "";
+    display: inline-flex;
+    width: 15px;
+    height: 15px;
+    background-image: url("../img/star.png");
+  }
 }
 
+@mixin checkbox {
+  content: '';
+  display: inline-block;
+  margin-right: 4px;
+}
 
+// state
+@mixin stateSvg {
 
+  & a:hover svg path {
+    fill: $second-violet-color;
+  }
 
+  & a:focus-visible svg path {
+    fill: #fff;
+    stroke: $second-violet-color ;
+  }
+
+  & a:active svg path {
+    fill: $active-violet-color;
+  }
+}
+
+@mixin stateBtnSvg {
+
+  &:hover svg {
+    & circle {
+      fill: $main-violet-color;
+    }
+
+    & path {
+      stroke: #fff !important;
+    }
+  }
+
+  &:focus-visible svg {
+    & circle {
+      fill: $second-violet-color;
+    }
+
+    & path {
+      stroke: #fff;
+    }
+  }
+
+  &:active svg {
+    & circle {
+      stroke: $active-violet-color;
+      fill: $active-violet-color;
+    }
+
+    & path {
+      stroke: #fff;
+    }
+  }
+}
+
+@mixin stateInput {
+  &:hover {
+    background-color: #EAEAEA;
+  }
+
+  &:focus-visible {
+    background-color: #F8EFFF;
+    outline: 2px solid $main-violet-color;
+  }
+}

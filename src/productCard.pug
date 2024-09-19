@@ -1,0 +1,71 @@
+extends _layout.pug
+
+block link
+  link(rel="stylesheet" type="text/css" href=require("./css/goods.scss"))
+  link(rel="stylesheet" type="text/css" href=require("./css/productCard.scss"))
+block varialables
+  include _mixins.pug
+  -
+    var chars = [
+      {naming:"Гарантия",meaning:"18 месяцев"},{naming:"Артикул",meaning:"AAA41269004"},{naming:"Длина",meaning:"163см"},
+      {naming:"Высота",meaning:"90 см"},{naming:"Глубина",meaning:"108 см"},{naming:"Спальное место",meaning:"200 см х 125 см"},
+      {naming:"Высота посадки",meaning:"45 см"},{naming:"Механизм",meaning:"Опорный"},{naming:"Тип обивки",meaning:"Рогожка"},
+      {naming:"Цвет",meaning:"Синий"},{naming:"Наполнитель",meaning:"Независимый пружинный блок"},{naming:"Материал каркаса",meaning:"Металл. рама с дерев. латами"},
+      {naming:"Количество мест",meaning:"Двухместные"},{naming:"Категория",meaning:"Прямые тканевые диваны"},{naming:"Возврат",meaning:"Условия"}
+    ];
+  -
+    var goods = [
+          {star:"4,5",title:`Диван велюровый<br />“R-85”`,price:"34 990 руб",img:"10"},
+          {star:"4,6",title:`Диван флоковый<br />“H-58”`,price:"23 990 руб",img:"11"},
+          {star:"4,5",title:`Диван велюровый<br />“S-44””`,price:"19 990 руб",img:"12"},
+          {star:"4,5",title:`Диван велюровый<br />“S-44””`,price:"19 990 руб",img:"13"}
+    ]
+block content
+  section.navigation
+    .container
+      nav.navigation__wrap
+        .navigation__item
+          a.navigation__link Главная
+        .navigation__item
+          a.navigation__link Каталог
+        .navigation__item
+          a.navigation__link Диваны
+        .navigation__item
+          a.navigation__link Прямые диваны
+        .navigation__item
+          a.navigation__link D-31
+  section.card
+    .container
+      .card__content
+        .card__main
+          picture
+            source(srcset=require(`./img/sofa-card-mobile.jpg`), media="(max-width: 1000px)")
+            img(src=require(`./img/sofa-card.jpg`), alt="Диван тканевый прямой “D-31”")
+          .card__article.article
+            span.article__star 4.8
+            h2.article__title Диван тканевый прямой&quot;D&#8209;31&Prime;
+            p.article__descr Мини 120 см без ящика Stark синий (Рогожка)
+            p.article__price 28 490 руб
+            button.article__btn.article__btn-buy Купить в один клик
+            button.article__btn.article__btn-add + Добавить в корзину
+        .card__chars.chars
+          .chars__info.chars__info-left
+            h3.chars__title Опорный механизм
+            p.chars__descr
+              | Опорный механизм напоминает пантограф, к которому добавили дополнительную секцию. У опорного дивана сиденье «выпрыгивает» вперёд и вытаскивает вторую часть спального места. Заключительный штрих — опустить спинку.
+              | Этот механизм не портит пол и не боится ковров. Требуется чуть больше силы, чтобы разложить диван, но подросток справится.
+          .chars__info.chars__info-right
+            ul.chars__list
+              each char in chars
+                li.chars__item
+                    p.chars__naming=char.naming
+                    p.chars__meaning=char.meaning
+  section.goods
+    .container
+      .goods__content
+        h2.goods__title Похожие товары
+        +card(goods)
+
+
+
+

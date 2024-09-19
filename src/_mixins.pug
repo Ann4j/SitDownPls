@@ -1,0 +1,12 @@
+mixin card(cards)
+  if cards && cards.length
+    .goods__products
+      each card in cards
+        article.goods__product.product
+          .product__card
+            span.product__star=card.star
+            img(src=require(`./img/goods-sofa-${card.img}.png`), alt=`${card.title}`)
+            .product__wrap
+              h4.product__title !{card.title}
+              p.product__price=card.price
+              button.product__btn Купить

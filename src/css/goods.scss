@@ -1,0 +1,146 @@
+@import '_varialables.scss';
+@import '_mixin.scss';
+
+// goods
+
+.goods {
+  &__products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
+    align-items: start;
+  }
+
+}
+
+.product {
+  flex: 1;
+  background-color: $back-color;
+  position: relative;
+  height: 440px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  border-radius: 10px;
+
+  &__card {
+    padding: 30px 15px;
+    border: 10px;
+  }
+
+  &__card img {
+    display: block;
+    margin: 0 auto;
+  }
+
+  &__wrap {
+    padding: 16px 14px 0 15px;
+  }
+
+  &__title {
+    @include textStyle;
+    line-height: 1.3;
+    margin-bottom: 24px;
+    white-space: nowrap
+  }
+
+  &__price {
+    @include navItemStyle;
+    color: $gray-text-color;
+    margin-bottom: 24px;
+    white-space: nowrap
+  }
+
+  &__btn {
+    @include btnUnpainted;
+  }
+
+  @include star;
+}
+
+@media (max-width:1360px) {
+  // goods
+
+  .goods {
+
+    &__products {
+      justify-content: center;
+    }
+  }
+
+  .product:nth-of-type(n+7) {
+    display: none;
+  }
+
+  .product img {
+    width: max(108px, min(25vw, 262px));
+  }
+}
+
+@media (max-width:1000px) {
+  // goods
+
+  .goods {
+
+    &__product {
+      flex-basis: 47.5%;
+    }
+  }
+
+  .product {
+    height: clamp(280px, 51vw, 440px);
+  }
+}
+
+@media (max-width:760px) {
+  // goods
+
+  .goods {
+    &__products {
+      gap: 10px;
+    }
+  }
+
+  .product {
+
+    &__card {
+      padding: 15px;
+    }
+
+    & img {
+      width: clamp(108px, 30vw, 262px);
+    }
+
+    &__title {
+      font-size: clamp(16px, 3vw, 20px);
+      margin-bottom: 20px;
+      white-space: wrap;
+    }
+
+    &__btn {
+      padding: 10px 25px;
+    }
+
+    &__star {
+      top: 14px;
+      font-size: 12px;
+      left: 15px;
+    }
+
+    &__price {
+      margin-bottom: 20px;
+    }
+
+    &__star::before {
+      background-image: url(../img/star-mobile.png);
+      width: 13px;
+      height: 12px;
+    }
+
+    &__wrap {
+      padding: 0;
+      padding-top: 16px;
+    }
+  }
+}

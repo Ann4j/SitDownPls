@@ -1,0 +1,257 @@
+@import '_varialables.scss';
+@import '_mixin.scss';
+
+.header__main {
+  padding: 32px 0 20px;
+}
+
+.navigation {
+  @include groupCatalogNav;
+}
+
+.catalog {
+  margin-bottom: 70px;
+  &__content {
+    display: flex;
+    gap: 32px;
+  }
+
+  &__title-adapt {
+
+    display: none;
+  }
+}
+
+.goods {
+  &__links {
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    gap: 16px;
+  }
+
+  &__links a:nth-child(3) {
+    display: none;
+  }
+
+  &__title {
+    @include textStyle;
+    margin-bottom: 24px;
+  }
+
+  &__title-adapt {
+    display: none;
+  }
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: space-between;
+  min-height: 100%;
+  align-items: stretch;
+  margin-bottom: 65px;
+
+  &__title {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.3;
+    color: $main-text-color;
+    margin-bottom: 20px;
+  }
+
+  &__wrap {
+    margin-bottom: 26px;
+  }
+
+  &__subtitle {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.3;
+    color: $gray-text-color;
+    margin-bottom: 10px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__label {
+    @include navItemStyle;
+    color: $gray-text-color;
+    position: relative;
+    user-select: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+
+  &__label::before {
+    @include checkbox;
+    width: 20px;
+    height: 20px;
+    background-image: url(../img/cheсkbox-catalog.svg);
+  }
+
+  &__chekbox {
+    appearance: none;
+    position: absolute;
+  }
+
+}
+
+.filter__chekbox:checked+.filter__label::before {
+  background-image: url(../img/cheсkbox-catalog-true.svg);
+}
+
+.price {
+
+  &__wrap {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  &__label {
+    @include navItemStyle;
+    color: $gray-text-color;
+    pointer-events: none;
+  }
+
+  &__input {
+    border: 1px solid #999;
+    width: 86px;
+    padding: 4px 13px;
+  }
+
+  &__input::placeholder {
+    @include navItemStyle;
+    color: $gray-text-color;
+  }
+}
+
+.oxford {
+  background-color: $main-text-color;
+  border-radius: 10px 10px;
+  margin-top: auto;
+  background-image: url(../img/oxford-catalog.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  &__wrap {
+    padding: 180px 30px 30px;
+  }
+
+  &__title span {
+    display: block;
+    font-family: "Playfair-Display", sans-serif;
+    font-weight: 900;
+    font-size: 24px;
+    color: #d5b986;
+    margin-bottom: 5px;
+  }
+
+  &__title {
+    @include navItemStyle;
+    color: $second-text-color;
+    margin-bottom: 12px;
+  }
+
+  &__btn {
+    @include btnCatalog;
+    padding: 0;
+  }
+
+  &__btn svg {
+    height: 23px;
+    width: 23px;
+
+  }
+}
+
+.goods__products {
+  margin-bottom: 32px;
+}
+
+
+
+@media (max-width:1360px) {
+
+  .catalog {
+    &__content {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+
+  .goods {
+    &__title {
+      display: none;
+    }
+
+    &__title-adapt {
+      display: block;
+      margin-bottom: 0;
+    }
+
+    &__links {
+      padding: 0;
+    }
+  }
+
+  .filter {
+    margin-bottom: 0;
+
+
+    &__title {
+      display: none;
+    }
+
+    &__top {
+      display: flex;
+      gap: clamp(32px, 5vw, 70px);
+      flex-wrap: wrap;
+    }
+  }
+
+  .oxford {
+    display: none;
+  }
+
+  .product:nth-of-type(n+7) {
+    display: flex;
+  }
+
+  .goods {
+    margin-bottom: 20px;
+  }
+
+
+}
+
+@media (max-width:1000px) {
+  .product:nth-of-type(n+7) {
+    display: none;
+  }
+
+  .goods__links a:nth-child(3) {
+    display: block;
+  }
+}
+
+@media (max-width:1000px) {
+  .navigation {
+    display: none;
+  }
+
+  .filter__top {
+    gap: 16px;
+  }
+
+  .filter__wrap {
+    margin-bottom: 0;
+  }
+}

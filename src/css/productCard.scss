@@ -1,0 +1,263 @@
+@import '_varialables.scss';
+@import '_mixin.scss';
+
+.header__main {
+  padding: 32px 0 20px;
+}
+
+.navigation {
+  @include groupCatalogNav;
+  margin-bottom: 48px;
+}
+
+.card {
+  margin-bottom: 82px;
+
+  &__main {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 113px;
+  }
+}
+
+.article {
+  @include star;
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: start;
+
+  &__star {
+    top: 0;
+    left: 0;
+  }
+
+
+  &__title {
+    @include textStyle;
+    line-height: 1.3;
+    margin-bottom: 24px;
+    padding-top: 21px;
+    margin-bottom: 10px;
+  }
+
+  &__descr {
+    @include navItemGrayStyle;
+    margin-bottom: 1em;
+  }
+
+  &__price {
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 1.3;
+    color: $main-text-color;
+    margin-bottom: 1em;
+  }
+
+  &__btn-buy {
+    @include btnShaded;
+    padding: 20px 35px;
+  }
+
+  &__btn-add {
+    color: $main-violet-color;
+    font-weight: 400;
+    font-size: 16px;
+    padding: 12px 22px;
+  }
+}
+
+.chars {
+  display: flex;
+  gap: 32px;
+
+  &__info-left {
+    max-width: 55%;
+  }
+
+  &__info-right {
+    max-width: 45%;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1;
+    color: $main-text-color;
+    margin-bottom: 8px;
+  }
+
+  &__descr {
+    display: flex;
+    flex-direction: column;
+    @include navItemGrayStyle;
+    line-height: 1.8;
+    height: 100%;
+  }
+
+  &__descr::after {
+    content: "";
+    display: block;
+    width: 526px;
+    height: 107px;
+    background-image: url(../img/sofa-sketch.png), url(../img/sofa-sketch2.png);
+    background-size: contain, contain;
+    background-repeat: no-repeat, no-repeat;
+    background-position: top left, top right;
+    margin-top: auto;
+    margin-bottom: 20px;
+    margin-top: 32px;
+  }
+
+  &__list {
+    width: 100%;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__naming {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.8;
+    color: $second-text-color;
+  }
+
+  // &__naming::before {
+  //   width: 100%;
+  //   content: ''; /* Выводим линию */
+  //   border-bottom: 1px dashed #ccc; /* Параметры линии */
+  //   flex-grow: 1; /* Линия занимает всё доступное пространство */
+  //   order: 2; /* Выводим вторым */
+  //   margin: 0 5px;
+  // }
+
+  &__meaning {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.8;
+    order: 3;
+    color: $main-text-color;
+  }
+}
+
+.goods__title {
+  @include textStyle;
+  line-height: 1.3;
+  margin-bottom: 24px;
+}
+
+@media (max-width:1360px) {
+
+  .product:last-child {
+    display: none;
+  }
+}
+
+@media (max-width:1000px) {
+  .card {
+    &__main {
+      flex-direction: column;
+      margin-bottom: 82px;
+
+      & picture {
+        display: flex;
+      }
+
+      & img {
+        margin: 0 auto;
+      }
+    }
+  }
+
+  .article {
+    max-width: 100%;
+  }
+
+  .chars {
+    flex-direction: column;
+
+    &__info-left {
+      max-width: 100%;
+    }
+
+    &__info-right {
+      max-width: 100%;
+    }
+  }
+
+  .product:nth-of-type(n+3) {
+    display: none;
+  }
+}
+
+@media (max-width:760px) {
+
+  .navigation {
+    display: none;
+  }
+
+  .article {
+    align-items: stretch;
+
+    &__title {
+      font-size: 16px;
+    }
+
+    &__price {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+  }
+
+  .card {
+    margin-bottom: 50px;
+
+    &__main {
+      margin-bottom: 22px;
+      gap: 16px;
+
+      & img {
+        width: 80%;
+      }
+    }
+  }
+
+  .chars {
+    gap: 0;
+
+    &__descr::after {
+      height: 110px;
+      width: clamp(296px, 4vw, 526px);
+      background-size: clamp(140px, 4vw, 240px), clamp(140px, 4vw, 240px);
+      margin-bottom: 0;
+    }
+  }
+
+}
+
+@media (max-width:500px) {
+  .chars {
+
+    &__item {
+      flex-direction: column;
+      justify-content: start;
+    }
+
+    &__naming {
+      font-size: 10px;
+    }
+  }
+
+  .card {
+    &__main {
+      & img {
+        width: 100%;
+      }
+    }
+  }
+
+}
